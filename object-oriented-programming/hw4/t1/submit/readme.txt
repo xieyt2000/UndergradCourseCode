@@ -1,0 +1,7 @@
+本题中的Triangle和Rhombus都是NewShape的派生类，我们的目的是让只能调用Shape派生类的Drawing类调用NewShape的派生类，自然，首选方法是编写一个NewShape2Shape的适配器。
+
+在这里两种适配器模式都可以采用，本次采用的适配器模式是对象适配器模式，即使用组合来实现适配。
+NewShape2Shape类是Shape类的派生类，其中有一个私有成员NewShape*指针newshape，指向原来的NewShape派生类，存储着属性等一切信息。
+公有成员部分则分别实现Shape类中几个纯虚的功能函数，即draw，resize和description，draw和description直接调用newshape的函数即可，resize方面则通过newshape的description获得类型后输出" can't be resized. Please create new one with required values."即可，实现方式均较为直观。
+
+main函数里面也要做一些修改，第一处显然需要使用编写的适配器将triangle和rhombus转换，第二处则是最后释放地址的时候要注意把NewShape2Shape类和NewShape类的对象全部释放，这样才能保证无内存泄漏。

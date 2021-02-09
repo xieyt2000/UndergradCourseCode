@@ -1,0 +1,10 @@
+<h2>Textbook</h2>
+<table border="1">
+  <tr><th>Name</th><th>Email Address</th></tr>
+ {% for user in address %}
+  <tr>
+  <td>{{ user.name }}</td>
+  <td>{{ user.email }}</td>
+  </tr>
+{% endfor %}
+</table>

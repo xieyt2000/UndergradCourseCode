@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7a268781-4c9b-4f2c-93cb-f0a58be397d6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/lookup.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lookup.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../router/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../router/main.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MakefileLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="lookup" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="lookup" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectId" id="1l3k76eWVLbheqFdlea1Bu87xqC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" nameIsGenerated="true" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="lookup" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="$PROJECT_DIR$/lookup">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7a268781-4c9b-4f2c-93cb-f0a58be397d6" name="Default Changelist" comment="" />
+      <created>1606832992203</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606832992203</updated>
+      <workItem from="1606832993380" duration="745000" />
+      <workItem from="1606833840377" duration="1632000" />
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="706" y="210" width="1086" height="758" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606833103356">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="706" y="210" width="1086" height="758" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1606833103356" />
+    <state width="834" height="278" key="GridCell.Tab.0.bottom" timestamp="1606835712899">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="834" height="278" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1606835712899" />
+    <state width="834" height="278" key="GridCell.Tab.0.center" timestamp="1606835712898">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="834" height="278" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1606835712898" />
+    <state width="834" height="278" key="GridCell.Tab.0.left" timestamp="1606835712898">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="834" height="278" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1606835712898" />
+    <state width="834" height="278" key="GridCell.Tab.0.right" timestamp="1606835712899">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="834" height="278" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1606835712899" />
+    <state width="834" height="346" key="GridCell.Tab.1.bottom" timestamp="1606835712894">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="834" height="346" key="GridCell.Tab.1.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1606835712894" />
+    <state width="834" height="346" key="GridCell.Tab.1.center" timestamp="1606835712894">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="834" height="346" key="GridCell.Tab.1.center/0.23.1792.1097@0.23.1792.1097" timestamp="1606835712894" />
+    <state width="834" height="346" key="GridCell.Tab.1.left" timestamp="1606835712893">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="834" height="346" key="GridCell.Tab.1.left/0.23.1792.1097@0.23.1792.1097" timestamp="1606835712893" />
+    <state width="834" height="346" key="GridCell.Tab.1.right" timestamp="1606835712894">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="834" height="346" key="GridCell.Tab.1.right/0.23.1792.1097@0.23.1792.1097" timestamp="1606835712894" />
+    <state width="448" height="548" key="XDebugger.FullValuePopup" timestamp="1606833347248">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state width="448" height="548" key="XDebugger.FullValuePopup/0.23.1792.1097@0.23.1792.1097" timestamp="1606833347248" />
+    <state x="588" y="121" width="696" height="897" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606835494828">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="588" y="121" width="696" height="897" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1792.1097@0.23.1792.1097" timestamp="1606835494828" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="CLionNativeAppRunConfigurationType">
+        <watch expression="routingTable" language="ObjectiveC" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

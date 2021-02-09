@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{{wd}}_球队主页</title>
+    <link rel="shortcut icon" type="image/png" href="{{ STATIC_URL }}/favicon.ico" />
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.js"></script>
+    <link href="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet">
+    <style type="text/css">
+        <!--
+        body {
+            font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+            background-color: #4E5869;
+            margin: 0;
+            padding: 0;
+            color: #000;
+        }
+
+        /* ~~ 元素/标签选择器 ~~ */
+        ul,
+        ol,
+        dl {
+            /* 由于浏览器之间的差异，最佳做法是在列表中将填充和边距都设置为零。为了保持一致，您可以在此处指定需要的数值，也可以在列表所包含的列表项（LI、DT 和 DD）中指定需要的数值。请注意，除非编写一个更为具体的选择器，否则您在此处进行的设置将会层叠到 .nav 列表。 */
+            padding: 0;
+            margin: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+            margin-top: 0;
+            /* 删除上边距可以解决边距会超出其包含的 div 的问题。剩余的下边距可以使 div 与后面的任何元素保持一定距离。 */
+            padding-right: 15px;
+            padding-left: 15px;
+            /* 向 div 内的元素侧边（而不是 div 自身）添加填充可避免使用任何方框模型数学。此外，也可将具有侧边填充的嵌套 div 用作替代方法。 */
+        }
+
+        a img {
+            /* 此选择器将删除某些浏览器中显示在图像周围的默认蓝色边框（当该图像包含在链接中时） */
+            border: none;
+        }
+
+        /* ~~ 站点链接的样式必须保持此顺序，包括用于创建悬停效果的选择器组在内。 ~~ */
+        a:link {
+            color: #414958;
+            text-decoration: underline;
+            /* 除非将链接设置成极为独特的外观样式，否则最好提供下划线，以便可从视觉上快速识别 */
+        }
+
+        a:visited {
+            color: #4E5869;
+            text-decoration: underline;
+        }
+
+        a:hover,
+        a:active,
+        a:focus {
+            /* 此组选择器将为键盘导航者提供与鼠标使用者相同的悬停体验。 */
+            text-decoration: none;
+        }
+
+        /* ~~ 此容器包含所有其它 div，并依百分比设定其宽度 ~~ */
+        .container {
+            width: 80%;
+            max-width: 1260px;
+            /* 可能需要最大宽度，以防止此布局在大型显示器上过宽。这将使行长度更便于阅读。IE6 不遵循此声明。 */
+            min-width: 780px;
+            /* 可能需要最小宽度，以防止此布局过窄。这将使侧面列中的行长度更便于阅读。IE6 不遵循此声明。 */
+            background-color: #FFF;
+            margin: 0 auto;
+            /* 侧边的自动值与宽度结合使用，可以将布局居中对齐。如果将 .container 宽度设置为 100%，则不需要此设置。 */
+            overflow: hidden;
+            /* 此声明将使 .container 清除其包含的所有浮动列。 */
+        }
+
+        /* ~~ 以下是此布局的列。 ~~
+
+        1) 填充只会放置于 div 的顶部和/或底部。此 div 中的元素侧边会有填充。这样，您可以避免使用任何“方框模型数学”。请注意，如果向 div 自身添加任何侧边填充或边框，这些侧边填充或边框将与您定义的宽度相加，得出 *总计* 宽度。您也可以选择删除 div 中的元素的填充，并在该元素中另外放置一个没有任何宽度但具有设计所需填充的 div。
+
+        2) 由于这些列均为浮动列，因此未对其指定边距。如果必须添加边距，请避免在浮动方向一侧放置边距（例如：div 中的右边距设置为向右浮动）。在很多情况下，都可以改用填充。对于必须打破此规则的 div，应向该 div 的规则中添加“display:inline”声明，以控制某些版本的 Internet Explorer 会使边距翻倍的错误。
+
+        3) 由于可以在一个文档中多次使用类（并且一个元素可以应用多个类），因此已向这些列分配类名，而不是 ID。例如，必要时可堆叠两个侧栏 div。您可以根据个人偏好将这些名称轻松地改为 ID，前提是仅对每个文档使用一次。
+
+        4) 如果您更喜欢在右侧（而不是左侧）进行导航，只需使这些列向相反方向浮动（全部向右，而非全部向左），它们将按相反顺序显示。您无需在 HTML 源文件中移动 div。
+
+        */
+        .sidebar1 {
+            float: left;
+            width: 25%;
+            background-color: #93A5C4;
+            padding-bottom: 10px;
+        }
+
+        .content {
+            padding: 10px 0;
+            width: 75%;
+            float: left;
+        }
+
+        /* ~~ 此分组的选择器为 .content 区域中的列表提供了空间 ~~ */
+        .content ul,
+        .content ol {
+            padding: 0 15px 15px 40px;
+            /* 此填充反映上述标题和段落规则中的右填充。填充放置于下方可用于间隔列表中其它元素，置于左侧可用于创建缩进。您可以根据需要进行调整。 */
+        }
+
+        /* ~~ 导航列表样式（如果选择使用预先创建的 Spry 等弹出菜单，则可以删除此样式） ~~ */
+        ul.nav {
+            list-style: none;
+            /* 这将删除列表标记 */
+            border-top: 1px solid #666;
+            /* 这将为链接创建上边框 – 使用下边框将所有其它项放置在 LI 中 */
+            margin-bottom: 15px;
+            /* 这将在下面内容的导航之间创建间距 */
+        }
+
+        ul.nav li {
+            border-bottom: 1px solid #666;
+            /* 这将创建按钮间隔 */
+        }
+
+        ul.nav a,
+        ul.nav a:visited {
+            /* 对这些选择器进行分组可确保链接即使在访问之后也能保持其按钮外观 */
+            padding: 5px 5px 5px 15px;
+            display: block;
+            /* 这将为链接赋予块属性，使其填满包含它的整个 LI。这样，整个区域都可以响应鼠标单击操作。 */
+            text-decoration: none;
+            background-color: #8090AB;
+            color: #000;
+        }
+
+        ul.nav a:hover,
+        ul.nav a:active,
+        ul.nav a:focus {
+            /* 这将更改鼠标和键盘导航的背景和文本颜色 */
+            background-color: #6F7D94;
+            color: #FFF;
+        }
+
+        /* ~~ 其它浮动/清除类 ~~ */
+        .fltrt {
+            /* 此类可用于在页面中使元素向右浮动。浮动元素必须位于其在页面上的相邻元素之前。 */
+            float: right;
+            margin-left: 8px;
+        }
+
+        .fltlft {
+            /* 此类可用于在页面中使元素向左浮动。浮动元素必须位于其在页面上的相邻元素之前。 */
+            float: left;
+            margin-right: 8px;
+        }
+
+        .clearfloat {
+            /* 如果从 .container 中删除了 overflow:hidden，则可以将此类放置在 <br /> 或空 div 中，作为 #container 内最后一个浮动 div 之后的最终元素 */
+            clear: both;
+            height: 0;
+            font-size: 1px;
+            line-height: 0px;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        .result {
+            color: gray;
+        }
+
+        .brief-comment {
+            color: gray;
+            font-size: small;
+        }
+
+        .highlight {
+            color: red;
+        }
+
+        /* .pagination {
+            display: inline-block;
+            padding-left: 0;
+            margin: 20px 0;
+            border-radius: 4px;
+        } */
+
+        .pagination>li {
+            display: inline;
+        }
+
+        .pagination>li>a,
+        .pagination>li>span {
+            position: relative;
+            float: left;
+            padding: 6px 12px;
+            margin-left: -1px;
+            line-height: 1.42857143;
+            color: #337ab7;
+            text-decoration: none;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+
+        .pagination>li:first-child>a,
+        .pagination>li:first-child>span {
+            margin-left: 0;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .pagination>li:last-child>a,
+        .pagination>li:last-child>span {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+        -->
+    </style>
+    <!--[if lte IE 7]>
+<style>
+.content { margin-right: -1px; } /* 此 1px 负边距可以放置在此布局中的任何列中，且具有相同的校正效果。 */
+ul.nav a { zoom: 1; }  /* 缩放属性将为 IE 提供其需要的 hasLayout 触发器，用于校正链接之间的额外空白 */
+</style>
+<![endif]-->
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="sidebar1">
+            <ul class="nav">
+                <li><a href="#">进入NBA：<span id="time"></span></a></li>
+                <li><a href="#">主场：<span id="stadium"></span></a></li>
+                <li><a id="homePageUrl" href="#" target="_blank">官网：<span id="homePageName"></span></a></li>
+                <li><a href="#">主教练：<span id="coach"></span></a></li>
+            </ul>
+            <p><span id="intro"></span></p>
+            <!-- end .sidebar1 -->
+        </div>
+        <div class="content">
+            <h1><img id="logo"><span id="fullName"></span></h1>
+
+            <p>
+            </p>
+            <h2>球员名单</h2>
+            <table width="80%" border="1" class="roster-table" , align="center">
+                <tr>
+                    <td width="10%">号码</td>
+                    <td width="70%">姓名</td>
+                </tr>
+            </table>
+            <p>&nbsp;</p>
+
+            <!-- end .content -->
+        </div>
+        <h2>相关新闻</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="dropdown result">
+                    为你找到<span id="len"></span>条结果, 用时<span id="cost"></span>秒
+                </div>
+                <div class="brief-list"></div>
+                <ul class="pagination"></ul>
+            </div>
+            <!-- end .container -->
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    let post_list = [];
+    const page_size = 10;
+    let page_limit = 0;
+    const page_number = 7;
+    let page = 0;
+    let ci = [];
+    let roster = {};
+
+    function createBrief(data) {
+        let s = '';
+        s += "<div class='the-brief'>";
+        s += "<h3 class='brief-title'><a href='{% url 'post_info' %}?id=" + data['TID'] + "' target='_blank' class='brief-title-inner'>" + data['title'] + "</a></h3>";
+        s += "<div class='brief-comment'>" + data['time'] + " - " + data['source'] + "</div>";
+        s += "<p class='brief-content'>" + data['brief'] + '</p>';
+        s += "</div>";
+        return s;
+    }
+
+    function createPlayer(num, name) {
+        let str = '';
+        str += "<tr>";
+        if(num<1) str += "<td>" + "</td>"
+        else str += "<td>" + num + "</td>";
+        str += "<td>" + name + "</td>";
+        str += "</tr>";
+        return str;
+    }
+
+    function updBrief() {
+        $('.brief-list').empty();
+        const ask_list = {};
+        const bg = (page - 1) * page_size;
+        let ed = page * page_size;
+        if (bg >= post_list.length)
+            return;
+        if (ed > post_list.length)
+            ed = post_list.length;
+        for (let i = bg; i < ed; ++i) {
+            ask_list['' + (i - bg)] = Number(post_list[i]);
+        }
+        $.ajax({
+            url: "{% url 'ajax_post_brief' %}",
+            data: ask_list,
+            success: function (ret) {
+                let i;
+                for (i in ret) {
+                    $('.brief-list').append(createBrief(ret['' + i]));
+                }
+                const arr = $('.brief-title-inner, .brief-content');
+                for (let x = 0; x < arr.length; ++x) {
+                    let s = arr[x].innerHTML;
+                    for (i in ci) {
+                        s = s.split(ci[i]).join("<span class='highlight'>" + ci[i] + "</span>");
+                    }
+                    arr[x].innerHTML = s;
+                }
+            }
+        });
+    }
+
+    function upDRoster() {
+        for (let key in roster) {
+            $('.roster-table').append(createPlayer(key, roster[key]))
+        }
+    }
+
+    function updPagination() {
+        let i;
+        $('.pagination').empty();
+        const blk = Math.floor((page - 1) / page_number);
+        let bg = blk * page_number + 1;
+        let ed = (blk + 1) * page_number;
+        if (page == bg && bg != 1) {
+            --bg;
+            --ed;
+        }
+        if (page == ed && ed != page_limit) {
+            ++bg;
+            ++ed;
+        }
+        if (ed > page_limit)
+            ed = page_limit;
+        let s = "";
+        if (page != 1)
+            s += "<li class='page_prev'><a href='#'>&lt;上一页</a></li>";
+
+        for (i = bg; i <= ed; ++i) {
+            s += "<li id='page_" + i + "' the_id='" + i + "'" + (i == page ? " class='active'" : "") + "><a href='#'>" + i + "</a></li>";
+        }
+
+        if (page != page_limit)
+            s += "<li class='page_next'><a href='#'>下一页&gt;</a></li>";
+        $('.pagination').append(s);
+
+        if (page != 1)
+            $('.pagination .page_prev').click(function () {
+                page--;
+                updPagination();
+                updBrief();
+            });
+        if (page != page_limit)
+            $('.pagination .page_next').click(function () {
+                page++;
+                updPagination();
+                updBrief();
+            });
+        for (i = bg; i <= ed; ++i) {
+            $('#page_' + i).click(function () {
+                page = $(this).attr('the_id');
+                updPagination();
+                updBrief();
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        $('#search_edit').attr('value', '{{ wd }}');
+        $.ajax({
+            url: "{% url 'ajax_team' %}",
+            data: {
+                'wd': '{{ wd }}'
+            },
+            success: function (ret) {
+                $('#len').html(ret['len']);
+                $('#cost').html(ret['cost']);
+                document.getElementById('fullName').innerText = ret['full_name']
+                document.getElementById('logo').src = ret['logo']
+                document.getElementById('time').innerText = ret['time']
+                document.getElementById('stadium').innerText = ret['stadium']
+                document.getElementById("homePageUrl").href = ret['home_page']
+                document.getElementById("homePageName").innerText = ret['home_page']
+                document.getElementById('coach').innerText = ret['coach']
+                document.getElementById('intro').innerText = ret['intro']
+                roster = ret['roster']
+                ci = ret['ci'];
+                post_list = ret['data'];
+                page_limit = Math.ceil(post_list.length / page_size);
+                page = 1;
+                updPagination();
+                updBrief();
+                upDRoster()
+            }
+        });
+    });
+</script>
+
+</body>
+
+</html>

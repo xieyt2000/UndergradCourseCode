@@ -1,0 +1,8 @@
+本程序采用工厂模式制作披萨，PizzaFactory类用来创建、储存和操作plate、pizza，对原代码有大量的改动，放弃使用的原代码用注释的形势标出，未对原代码中的plate、pizza类做任何改动。
+
+首先将源代码中类的定义移动到了两个头文件中，符合oop的原则，便于之后操作。
+
+然后是定义PizzaFactory类，其中有两个私有成员vector<Pizza*> ordered_pizzas和vector<Plate*> plates，存储数据。
+公有成员则是多个接口，实现原来定义在main.cpp中的各种函数，因为ordered_pizzas和plates均变成了工厂的私有成员，于是操作它们的函数必须定义为工厂的成员函数。
+其中Pizza* make1Pizza(const string& type)可以根据pizza的类型返回指向不同pizza的指针，做披萨时向void make_orderd_pizzas(vector<string> types)传入一个披萨类型的字符串数组即可实现，plates的构造方法也类似。
+工厂也负责实例的回收。由void clear_orderd_pizzas()（将orderd_pizzas数组清空）和void deletePizzas()（将pizza指针指向的内容都删除）可以实现披萨的回收，这两个功能理应一并实现但原程序中将其分开于是本程序也将其分开。同时也提供了清除盘子的接口（虽然在原程序中不要求此功能，但为工厂的完整性还是加入）。每次delete一个指针后都将其赋为nullptr以防止重复删除。工厂析构时一并检查两私有数组，将其中非空指针释放内存空间。

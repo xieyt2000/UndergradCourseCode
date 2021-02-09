@@ -1,0 +1,362 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>球队热度榜</title>
+    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.js"></script>
+    <link rel="shortcut icon" type="image/png" href="{{ STATIC_URL }}/favicon.ico"/>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <style type="text/css">
+
+
+
+
+
+
+        body {
+            background:url("/static/teams.jpg");
+            font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+            font-size: 16px;
+            font-weight: 400;
+            text-rendering: optimizeLegibility;
+        }
+
+        div.table-title {
+            display: block;
+            margin: auto;
+            max-width: 600px;
+            padding: 5px;
+            width: 100%;
+        }
+
+        .table-title h3 {
+            color: gold;
+            font-size: 50px;
+            font-weight: 400;
+            font-style: normal;
+            text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+        }
+
+        a:link {
+            color: gray;
+        }
+
+
+        /*** Table Styles **/
+
+        .table-fill {
+            background: white;
+            border-radius: 3px;
+            border-collapse: collapse;
+            height: 320px;
+            max-width: 600px;
+            padding: 5px;
+            width: 100%;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            animation: float 5s infinite;
+            margin: 10% auto auto;
+        }
+
+        th {
+            color: #D5DDE5;;
+            background: #1b1e24;
+            border-bottom: 4px solid #9ea7af;
+            border-right: 1px solid #343a45;
+            font-size: 23px;
+            font-weight: 100;
+            padding: 24px;
+            text-align: left;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            vertical-align: middle;
+        }
+
+        th:first-child {
+            border-top-left-radius: 3px;
+        }
+
+        th:last-child {
+            border-top-right-radius: 3px;
+            border-right: none;
+        }
+
+        tr {
+            border-top: 1px solid #C1C3D1;
+            border-bottom-: 1px solid #C1C3D1;
+            color: #666B85;
+            font-size: 16px;
+            font-weight: normal;
+            text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+        }
+
+        tr:hover td {
+            background: #4E5066;
+            color: #FFFFFF;
+            border-top: 1px solid #22262e;
+        }
+
+        tr:first-child {
+            border-top: none;
+        }
+
+        tr:last-child {
+            border-bottom: none;
+        }
+
+        tr:nth-child(odd) td {
+            background: #EBEBEB;
+        }
+
+        tr:nth-child(odd):hover td {
+            background: #4E5066;
+        }
+
+        tr:last-child td:first-child {
+            border-bottom-left-radius: 3px;
+        }
+
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 3px;
+        }
+
+        td {
+            background: #FFFFFF;
+            padding: 20px;
+            text-align: left;
+            vertical-align: middle;
+            font-weight: 300;
+            font-size: 18px;
+            text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+            border-right: 1px solid #C1C3D1;
+        }
+
+        td:last-child {
+            border-right: 0px;
+        }
+
+        th.text-left {
+            text-align: left;
+        }
+
+        th.text-center {
+            text-align: center;
+        }
+
+        th.text-right {
+            text-align: right;
+        }
+
+        td.text-left {
+            text-align: left;
+        }
+
+        td.text-center {
+            text-align: center;
+        }
+
+        td.text-right {
+            text-align: right;
+        }
+
+
+
+        .threeD {
+            color: gold;
+            white-space: nowrap;
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4em;
+            letter-spacing: 0.1em;
+            transition: 0.3s;
+            text-shadow: 1px 1px 0 grey, 1px 2px 0 grey, 1px 3px 0 grey, 1px 4px 0 grey,
+            1px 5px 0 grey, 1px 6px 0 grey, 1px 7px 0 grey, 1px 8px 0 grey,
+            5px 13px 15px black;
+        }
+
+        .threeD:hover {
+            transition: 0.3s;
+            transform: scale(1.1) translate(-50%, -50%);
+            text-shadow: 1px -1px 0 grey, 1px -2px 0 grey, 1px -3px 0 grey,
+            1px -4px 0 grey, 1px -5px 0 grey, 1px -6px 0 grey, 1px -7px 0 grey,
+            1px -8px 0 grey, 5px -13px 15px black, 5px -13px 25px #808080;
+        }
+    </style>
+</head>
+
+<body>
+<div class="table-title">
+{#    <h3>球队热度榜</h3>#}
+    <div class="threeD">
+        球队热度榜
+    </div>
+
+</div>
+<table class="table-fill">
+    <thead>
+    <tr>
+        <th class="text-left">球队</th>
+        <th class="text-left">新闻数</th>
+        <th class="text-left">热度</th>
+    </tr>
+    </thead>
+    <tbody class="table-hover">
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=湖人">湖人</a></td>
+        <td class="text-left">1143</td>
+        <td class="text-left">18267</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=勇士">勇士</a></td>
+        <td class="text-left">611</td>
+        <td class="text-left">10694</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=火箭">火箭</a></td>
+        <td class="text-left">602</td>
+        <td class="text-left">9579</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=快船">快船</a></td>
+        <td class="text-left">532</td>
+        <td class="text-left">8862</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=篮网">篮网</a></td>
+        <td class="text-left">409</td>
+        <td class="text-left">7309</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=尼克斯">尼克斯</a></td>
+        <td class="text-left">409</td>
+        <td class="text-left">6652</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=雷霆">雷霆</a></td>
+        <td class="text-left">351</td>
+        <td class="text-left">6091</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=凯尔特人">凯尔特人</a></td>
+        <td class="text-left">446</td>
+        <td class="text-left">6040</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=76人">76人</a></td>
+        <td class="text-left">404</td>
+        <td class="text-left">5960</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=猛龙">猛龙</a></td>
+        <td class="text-left">387</td>
+        <td class="text-left">5594</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=鹈鹕">鹈鹕</a></td>
+        <td class="text-left">366</td>
+        <td class="text-left">5244</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=魔术">魔术</a></td>
+        <td class="text-left">238</td>
+        <td class="text-left">5011</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=奇才">奇才</a></td>
+        <td class="text-left">251</td>
+        <td class="text-left">4824</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=独行侠">独行侠</a></td>
+        <td class="text-left">254</td>
+        <td class="text-left">4743</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=雄鹿">雄鹿</a></td>
+        <td class="text-left">310</td>
+        <td class="text-left">4684</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=马刺">马刺</a></td>
+        <td class="text-left">281</td>
+        <td class="text-left">4676</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=热火">热火</a></td>
+        <td class="text-left">267</td>
+        <td class="text-left">4554</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=爵士">爵士</a></td>
+        <td class="text-left">263</td>
+        <td class="text-left">4369</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=国王">国王</a></td>
+        <td class="text-left">275</td>
+        <td class="text-left">4191</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=森林狼">森林狼</a></td>
+        <td class="text-left">203</td>
+        <td class="text-left">3952</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=太阳">太阳</a></td>
+        <td class="text-left">244</td>
+        <td class="text-left">3620</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=掘金">掘金</a></td>
+        <td class="text-left">225</td>
+        <td class="text-left">3578</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=老鹰">老鹰</a></td>
+        <td class="text-left">239</td>
+        <td class="text-left">3387</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=开拓者">开拓者</a></td>
+        <td class="text-left">262</td>
+        <td class="text-left">3285</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=公牛">公牛</a></td>
+        <td class="text-left">175</td>
+        <td class="text-left">3057</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=步行者">步行者</a></td>
+        <td class="text-left">171</td>
+        <td class="text-left">2975</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=灰熊">灰熊</a></td>
+        <td class="text-left">210</td>
+        <td class="text-left">2708</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=黄蜂">黄蜂</a></td>
+        <td class="text-left">174</td>
+        <td class="text-left">2634</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=骑士">骑士</a></td>
+        <td class="text-left">267</td>
+        <td class="text-left">2614</td>
+    </tr>
+    <tr>
+        <td class="text-left"><a href="{% url 'team' %}?wd=活塞">活塞</a></td>
+        <td class="text-left">154</td>
+        <td class="text-left">2124</td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>

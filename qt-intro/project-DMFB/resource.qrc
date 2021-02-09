@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/sounds">
+        <file>sound/merge.wav</file>
+        <file>sound/move.wav</file>
+        <file>sound/split1.wav</file>
+        <file>sound/split2.wav</file>
+    </qresource>
+</RCC>

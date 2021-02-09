@@ -1,0 +1,48 @@
+﻿1.DateTime.cpp 和 DateTime.h
+2.attribute.h 增加类型
+3.attribute.cpp 修改构造
+4.value.cpp stringtovalue  value构造
+5.value.h #include datetime
+7.table.cpp insert修改几个case
+8.value.cpp 实例化convert
+9.whereclause.cpp 加入实例
+
+
+0. Math h 和 cpp
+1.SQLselect修改 sql.h  
+2.SQLSelect::Parse函数 sql.cpp
+3.select manager.cpp
+
+
+
+DateTime样例：
+CREATE DATABASE TESTDB;
+USE TESTDB;
+CREATE TABLE TESTTB(d DATE, t TIME, dt DATETIME, PRIMARY KEY(dt));
+INSERT INTO TESTTB(d, t, dt) VALUES (2000-01-01, 30:50:56, 2468-08-17|17:28:34);
+INSERT INTO TESTTB(d, t, dt) VALUES (2150-01-01, 04:50:56, 2000-08-17|17:28:34);
+SELECT * from TESTTB;
+UPDATE TESTTB SET t = 100:00:00 WHERE dt = 2000-08-17|17:28:34;
+SELECT * from TESTTB WHERE dt < 1999-12-12|00:00:00 or t > 40:00:00;
+SELECT * from TESTTB WHERE dt > 2000-12-12|00:00:00 and t < 40:00:00;
+SELECT ADDTIME(1000:37:12, 2000-08-17|17:28:34);
+SELECT ADDDAY(7560, 2000-08-17|17:28:34);
+DROP DATABASE TESTDB;
+
+MathFuction样例
+CREATE DATABASE TESTDB;
+USE TESTDB;
+CREATE TABLE TESTTB(d DATE, t TIME, dt DATETIME, PRIMARY KEY(dt));
+SELECT ABS(-1.3423423);
+SELECT PI();
+SELECT CEIL(10.00001);
+SELECT FLOOR(9.999);
+SELECT POW(1.1, 5.3);
+SELECT MOD(9, 6);
+SELECT SIGN(0);
+SELECT SIGN(1);
+SELECT SIGN(-1);
+SELECT SQRT(103.1);
+SELECT RADIANS(190.8);
+SELECT LOG10(123);
+DROP DATABASE TESTDB;

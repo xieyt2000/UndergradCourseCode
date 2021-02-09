@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/sound">
+        <file>biscuit.wav</file>
+        <file>cola.wav</file>
+        <file>noodle.wav</file>
+        <file>steak.wav</file>
+    </qresource>
+    <qresource prefix="/picture">
+        <file>biscuit.jpg</file>
+        <file>cola.jpg</file>
+        <file>noodle.jpg</file>
+        <file>steak.jpg</file>
+    </qresource>
+</RCC>

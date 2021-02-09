@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/course-cplusplus/!svn/ver/452/2016/Django-1.10.1/hw2/hw
+END
+add.py
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/course-cplusplus/!svn/ver/452/2016/Django-1.10.1/hw2/hw/add.py
+END
+wsgi.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/course-cplusplus/!svn/ver/452/2016/Django-1.10.1/hw2/hw/wsgi.py
+END
+list.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/course-cplusplus/!svn/ver/452/2016/Django-1.10.1/hw2/hw/list.py
+END
+reply.py
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/course-cplusplus/!svn/ver/452/2016/Django-1.10.1/hw2/hw/reply.py
+END
+hw.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/course-cplusplus/!svn/ver/452/2016/Django-1.10.1/hw2/hw/hw.py
+END
+lists.py
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/course-cplusplus/!svn/ver/452/2016/Django-1.10.1/hw2/hw/lists.py
+END
+time.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/course-cplusplus/!svn/ver/452/2016/Django-1.10.1/hw2/hw/time.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/course-cplusplus/!svn/ver/452/2016/Django-1.10.1/hw2/hw/__init__.py
+END
+settings.py
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/course-cplusplus/!svn/ver/452/2016/Django-1.10.1/hw2/hw/settings.py
+END
+urls.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/course-cplusplus/!svn/ver/452/2016/Django-1.10.1/hw2/hw/urls.py
+END
+formsubmit.py
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/course-cplusplus/!svn/ver/452/2016/Django-1.10.1/hw2/hw/formsubmit.py
+END

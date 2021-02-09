@@ -1,0 +1,10 @@
+SHOW DATABASES;
+USE TESTDB;
+SHOW TABLES;
+SELECT * FROM TESTTB;
+DROP DATABASE TESTDB;
+SHOW DATABASES;
+
+
+==================WARNING==================
+这个测例是为了测试存档功能，一定确保先运行谢云桐的测例1，并且最后没有drop database的前提下再运行本例！

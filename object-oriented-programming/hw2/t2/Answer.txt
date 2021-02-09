@@ -1,0 +1,38 @@
+（1）没有错误和风险。
+Test(int): this->buf @ 0xd14f0				调用F函数时构造函数构造参数a，Test（1）
+Test(const Test&) called. this->buf @ 0xd1510		F函数中Test b=a调用复制构造函数
+Test(Test&&) called. this->buf @ 0xd1510		调用移动构造从b构造临时返回对象
+~Test(): this->buf @ 0				析构b
+Test(Test&&) called. this->buf @ 0xd1510		Test A = F(1); 移动构造A
+~Test(): this->buf @ 0				析构F（1）的返回对象
+~Test(): this->buf @ 0xd14f0				析构F的参数a
+~Test(): this->buf @ 0xd1510				main函数结束析构A
+构造函数4次  其中复制构造函数1次 移动构造函数2次 赋值运算、移动赋值运算均未使用
+
+（2）没有编译错误，存在风险
+b的buf指向内存会被delete两次（析构b和A时），第二次delete的时候buf是野指针，析构函数中的if语句无法判断从而重复delete
+
+（3）没有编译错误，存在风险
+A引用的是函数中被销毁的临时变量，如果使用A会出错
+
+（4）没有编译错误和风险
+Test(int): this->buf @ 0xb06b90			调用F函数时构造一个隐式对象使a成为它的引用
+Test(const Test&) called. this->buf @ 0xb06d20		复制构造b
+Test(Test&&) called. this->buf @ 0xb06d20		调用移动构造从b构造临时返回对象
+~Test(): this->buf @ 0				析构b
+Test(Test&&) called. this->buf @ 0xb06d20		从返回对象移动构造A
+~Test(): this->buf @ 0				析构返回对象
+~Test(): this->buf @ 0xb06b90			析构F（1）传参时生成的隐式对象
+~Test(): this->buf @ 0xb06d20			析构A
+构造函数4次，其中复制构造1次，移动构造2次  赋值运算、移动赋值运算均未使用
+注：此处std::move后a仍然是常量引用，没被转化为右值，a引用的内容没有变化，可能与开发者意图不符，但不会造成风险。
+
+（5）没有错误和风险
+Test(): this->buf @ 0x7fffd6a95e70			默认构造a
+Test(const Test&) called. this->buf @ 0x7fffd6a96ea0	复制构造F中的参数a
+Test(const Test&) called. this->buf @ 0x7fffd6a96ec0	复制构造A
+~Test(): this->buf @ 0x7fffd6a96ea0			析构F的a（也是b、F的返回值）
+~Test(): this->buf @ 0x7fffd6a96ec0			析构A
+~Test(): this->buf @ 0x7fffd6a95e70			析构a
+构造函数3次，其中复制构造2次，移动构造、赋值运算、移动赋值运算均未使用
+
