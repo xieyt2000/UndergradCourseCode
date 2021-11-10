@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/task1/task1.ko := ld -r  -EL  -maarch64elf  --build-id  -T ./scripts/module-common.lds -T ./arch/arm64/kernel/module.lds -o /home/ubuntu/task1/task1.ko /home/ubuntu/task1/task1.o /home/ubuntu/task1/task1.mod.o;  true

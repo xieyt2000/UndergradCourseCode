@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/xieyuntong/Documents/code/course/arch/lab2/cache.h
+iostream
+-
+cstdlib
+-
+
+/Users/xieyuntong/Documents/code/course/arch/lab2/solver.cpp
+solver.h
+/Users/xieyuntong/Documents/code/course/arch/lab2/solver.h
+cache.h
+/Users/xieyuntong/Documents/code/course/arch/lab2/cache.h
+iostream
+-
+
+/Users/xieyuntong/Documents/code/course/arch/lab2/solver.h
+cache.h
+/Users/xieyuntong/Documents/code/course/arch/lab2/cache.h
+iostream
+-
+
